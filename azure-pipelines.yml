@@ -1,0 +1,20 @@
+
+trigger:
+- main
+
+pool:
+  vmImage: Default
+  demands: Agent.Name -eqals veera_win
+
+-stage: 
+ -steps: 
+   Jobs:
+    job: build job
+     DisplayName : build
+     - task: Bash@3
+       inputs:
+         targetType: 'inline'
+         script: 'mvn clean package'
+
+
+
